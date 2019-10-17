@@ -1,0 +1,20 @@
+{
+    "settings": {
+        "stopId": [
+            "STA_MIRABEAW"
+        ],
+        "badging_css": "true",
+        "manual_custom_css": {
+            ".main_bg": {
+                "background": "#00b7f1"
+            },
+            "#main_circle": {
+                "background": "#b0d570"
+            },
+            "#main_backdrop_circle": {
+                "background": "white"
+            }
+        },
+        "logo": "../resources/sta_logo.png"
+    }
+}

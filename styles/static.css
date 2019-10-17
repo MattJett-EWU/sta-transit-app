@@ -1,0 +1,122 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: [MAIN] auto [RIBBON] 24% [END];
+    grid-template-rows: [TIMEBAR] 65px [CONTENT] auto [END];
+}
+
+.main_bg {
+	/* container-placement */
+	grid-column: MAIN / RIBBON;
+	grid-row: CONTENT / END;
+
+	/* content-layout */
+	display: grid;
+	height: auto;
+	width: auto;
+	grid-template-columns: [STARTmain] 1fr [CIRCLEmain] auto [CIRCLEmainMID] auto [DEPART-ARRIVE] 1fr [ENDmain];
+	grid-template-rows: [TOPmain] 1fr [ROUTEmain] auto [LOGO] 1fr [BOTTOMmain];
+
+	/* shadow */
+	box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
+	z-index: 5;
+}
+
+.side_bg {
+    /* container-placement */
+    grid-column: RIBBON / END;
+    grid-row: CONTENT / END;
+
+    /* content-layout */
+    display: grid;
+    height: auto;
+	width: inherit;
+	grid-template-columns: [STARTribbon] 1fr [CIRCLEmidSTART] 1fr [CIRCLEmidEND] 1fr [ENDribbon];
+	grid-template-rows: [TOPribbon] 3fr [ROUTEribbon] auto [ROUTEribbonEND] 2fr [NAMEribbon] 1fr [BOTTOMribbon];
+
+    /* content-properties */
+    background: rgb(134, 134, 134);
+}
+
+#main_routeName {
+    grid-column: STARTmain / CIRCLEmainMID;
+    grid-row: TOPmain / ROUTEmain;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+#main_routeName_bg {
+    grid-column: STARTmain / CIRCLEmainMID;
+    grid-row: TOPmain / ROUTEmain;
+    background: rgb(221, 221, 221);
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    height: 70px;
+    border-radius: 0px 33px 0px 0px;
+    z-index: -1;
+}
+
+#main_routeName_text {
+    color: rgb(95, 95, 95);
+    padding: 0 30px 5px 0;
+    text-align: end;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+#side_routeName {
+    grid-column: CIRCLEmidSTART / CIRCLEmidEND;
+    grid-row: ROUTEribbonEND / NAMEribbon;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+    z-index: 2;
+    width: 200px;
+}
+
+#side_routeName_bg {
+    grid-column: CIRCLEmidSTART / CIRCLEmidEND;
+    grid-row: TOPribbon / NAMEribbon;
+    background: rgb(143, 143, 143);
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+    width: 200px;
+    justify-self: center;
+    border-radius: 0px 0px 33px 33px;
+    z-index: 1;
+}
+
+#side_routeName_text {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: rgb(104, 104, 104);
+    font-size: 20px;
+    padding: 0 0px 0px 0;
+    text-align: center;
+    word-wrap: break-word;
+    width: 180px;
+    margin: 0 5px 0 5px;
+    z-index: 2;
+}
+
+#logo {
+    grid-column: STARTmain / CIRCLEmain;
+    grid-row: LOGO / BOTTOMmain;
+    align-self: flex-end;
+    display: flex;
+    height: 50px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    margin: 3px 0px;
+}

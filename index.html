@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Transit Lounge App</title>
+        <link rel="stylesheet" href="./styles/static.css" title="theme">
+        <link rel="stylesheet" href="./styles/countdown.css" title="theme">
+        <link rel="stylesheet" href="./styles/route.css" title="theme">
+        <link rel="stylesheet" href="./styles/timebar.css" title="theme">
+        <link rel="stylesheet" href="./styles/cards.css" title="theme">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="./js/init.js"></script>
+        <script src="./js/utils.js"></script>
+        <script src="./js/Clock.js"></script>
+    </head>
+    <body>
+
+        <!-- TIME BAR -->
+        <div id="timebar">
+            <div id="currentTime">11:34am</div>
+            <div id="stop">
+                {bus stop name}
+            </div>
+            <div class="rightSideDate">
+                <div class="rightSideDate" id="currentDay">Tuesday</div>
+                <div class="rightSideDate" id="currentDate">August 13th, 2019</div>
+            </div>
+        </div>
+
+        <!-- MAIN BUS CANVAS -->
+        <div class="main_bg canvas">
+            <div id="main_backdrop"> </div>
+            <div id="main_routeName_bg"> </div>
+            <div id="main_routeName">
+                <h2 id="main_routeName_text">{route name}</h2>
+            </div>
+			<div class="countdown" id="arrivesIN">
+				<h3 class="arrivesIN_text" id="arrivesIN_top_text">{arrives in}</h3>
+				<h1 id="arrivesIN_minute">{}</h1>
+				<h3 class="arrivesIN_text" id="arrivesIN_bottom_text">{minutes}</h3>
+			</div>
+            <div class="route" id="route_main">
+                <div class="circle" id="main_circle">
+                    <h1 class="route_number" id="route_main_number">{}</h1>
+                </div>
+            </div>
+
+            <div id="cardsContainer">
+                <div class="cards">
+                    <div class="card_header" id="departs_CardBG">
+                        <h2 class="card_title">Departs</h2>
+                    </div>
+                    <div class="card_body" id="departs_CardInfo">
+                        <div class="divFor_cardBusStop">
+                            <h3 class="cardBusStop" id="departs_CardBusStop">{Elm & C Street}</h3>
+                        </div>
+                        <h3 class="cardTime" id="departs_CardTime">{12:05pm}</h3>
+                    </div>
+                </div>
+                <svg id="triangles" height="160" width="70">
+                    <polygon points="0,0 70,0 35,40" style="fill:rgba(255, 255, 255, 0.603);" />
+                    <polygon points="0,40 70,40 35,80" style="fill:rgba(255, 255, 255, 0.603);" />
+                    <polygon points="0,80 70,80 35,120" style="fill:rgba(255, 255, 255, 0.603);" />
+                    <polygon points="0,120 70,120 35,160" style="fill:rgba(255, 255, 255, 0.603);" />
+                </svg>
+                <div class="cards">
+                    <div class="card_header" id="arrives_CardBG">
+                        <h2 class="card_title">Arrives</h2>
+                    </div>
+                    <div class="card_body" id="arrives_CardInfo">
+                        <div class="divFor_cardBusStop">
+                            <h3 class="cardBusStop" id="arrives_CardBusStop">{Lincoln & Sprague}</h3>
+                        </div>
+                        <h3 class="cardTime" id="arrives_CardTime">{12:42pm}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <img id="logo" src="" alt="bus agency logo">
+        </div>
+
+        <!-- SIDE BUS CANVAS -->
+        <div class="side_bg canvas">
+            <div id="side_backdrop"> </div>
+            <div id="side_routeName_bg"> </div>
+            <div id="side_routeName">
+                <h2 id="side_routeName_text">{route name} </h2>
+            </div>
+			<div class="countdown" id="alsoIN">
+				<h3 class="alsoIN_text" id="alsoIN_top_text">{also in}</h3>
+				<h1 id="alsoIN_minute">{}</h1>
+				<h3 class="alsoIN_text" id="alsoIN_bottom_text">{minutes}</h3>
+			</div>
+            <div class="route" id="route_side">
+                <div class="circle" id="side_circle">
+					<h1 class="route_number" id="route_side_number">{}</h1>
+				</div>
+            </div>
+        </div>
+
+        </div>
+
+    </body>
+</html>
+
+<!-- UPCOMING FEATURES
+    * add fullscreen 'offline' at night when no more routes departing for the night
+    * edit route number to scale to fit in size when 3 or 4 digits
+    * check if 'predicted' == true, if so, then use this scheduled time instead (acc. delays)
+    * maybe divide sidebar in half showing next 2 incoming routes
+    * create table to flip between main screen, displaying bus stop's schedule for the next 10 incoming/outgoing routes for the day
+    * add section for scrolling alerts or comments underneith main route, could be useful for routes with special needs
+    * hightlight a button for bike access or not and wheelchar room availability or not
+    * in utils.js the function to notice user of changing routes, find a smart way to format this better 
+    * detect circle BG and main BG color based on hue and shade, change color of text to prevent blending of text from BG -->
+
+<!-- BUGS
+    * why is getArrivalsAndDeparturesObjForStop() in utils.js not return anything from the app at certain hours at night, but getStopInfo() works fine?
+        ~ possible that my array of routes is blank at that level, try testing base json data call, test to see if departureArrivals array is blank
+    * fix fonts to make sure they are web safe and universal, Segoe UI is the prob, tested on another system running linux -->
