@@ -15,6 +15,6 @@
                 "background": "white"
             }
         },
-        "logo": "../resources/sta_logo.png"
+        "logo": "./resources/sta_logo.png"
     }
 }
