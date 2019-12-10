@@ -67,7 +67,7 @@
 function getStopInfo(stopId) {
     $.ajax({
         type: 'GET',
-        url: "http://52.88.188.196:8080/api/api/where/stop/"+stopId+".json?key=TEST",
+        url: "https://52.88.188.196:8080/api/api/where/stop/"+stopId+".json?key=TEST",
         contentType: 'application/json',
         crossDomain: true,
         dataType: 'jsonp',
@@ -89,7 +89,7 @@ function getStopInfo(stopId) {
 function getTripDetails(originTripId, originStopId, originRouteId) {
     $.ajax({
         type: 'GET',
-        url: "http://52.88.188.196:8080/api/api/where/trip-details/"+originTripId+".json?key=TEST",
+        url: "https://52.88.188.196:8080/api/api/where/trip-details/"+originTripId+".json?key=TEST",
         contentType: 'application/json',
         crossDomain: true,
         dataType: 'jsonp',
@@ -109,7 +109,7 @@ function getTripDetails(originTripId, originStopId, originRouteId) {
                     console.log("FOUND A MATCH at " + i);
                     $.ajax({
                         type: 'GET',
-                        url: "http://52.88.188.196:8080/api/api/where/stop/"+stopTimes[i].stopId+".json?key=TEST",
+                        url: "https://52.88.188.196:8080/api/api/where/stop/"+stopTimes[i].stopId+".json?key=TEST",
                         contentType: 'application/json',
                         crossDomain: true,
                         dataType: 'jsonp',
@@ -134,7 +134,7 @@ function getTripDetails(originTripId, originStopId, originRouteId) {
                         console.log("still on same trip");
                         $.ajax({
                             type: 'GET',
-                            url: "http://52.88.188.196:8080/api/api/where/stop/"+stopTimes[stopTimes.length - 1].stopId+".json?key=TEST",
+                            url: "https://52.88.188.196:8080/api/api/where/stop/"+stopTimes[stopTimes.length - 1].stopId+".json?key=TEST",
                             contentType: 'application/json',
                             crossDomain: true,
                             dataType: 'jsonp',
@@ -173,7 +173,7 @@ function getTripDetails(originTripId, originStopId, originRouteId) {
 function getArrivalsAndDeparturesObjForStop(stopId) {
     $.ajax({
         type: 'GET',
-        url: "http://52.88.188.196:8080/api/api/where/arrivals-and-departures-for-stop/"+stopId+".json?key=TEST",
+        url: "https://52.88.188.196:8080/api/api/where/arrivals-and-departures-for-stop/"+stopId+".json?key=TEST",
         contentType: 'application/json',
         crossDomain: true,
         dataType: 'jsonp',
@@ -260,7 +260,7 @@ function getArrivalsAndDeparturesObjForStop(stopId) {
 function getTripById(tripId, originRouteId, originStopId) {
     $.ajax({
         type: 'GET',
-        url: "http://52.88.188.196:8080/api/api/where/trip/"+tripId+".json?key=TEST",
+        url: "https://52.88.188.196:8080/api/api/where/trip/"+tripId+".json?key=TEST",
         contentType: 'application/json',
         crossDomain: true,
         dataType: 'jsonp',
@@ -288,7 +288,7 @@ function getTripById(tripId, originRouteId, originStopId) {
 function getArrivalAndDepartureForStop(stopId, tripId, serviceDate, vehicleId) {
     $.ajax({
         type: 'GET',
-        url: "http://52.88.188.196:8080/api/api/where/arrival-and-departure-for-stop/"+stopId+".json?key=TEST&tripId="+tripId+"&serviceDate="+serviceDate+"&vehicleId="+vehicleId+"",
+        url: "https://52.88.188.196:8080/api/api/where/arrival-and-departure-for-stop/"+stopId+".json?key=TEST&tripId="+tripId+"&serviceDate="+serviceDate+"&vehicleId="+vehicleId+"",
         contentType: 'application/json',
         crossDomain: true,
         dataType: 'jsonp',
